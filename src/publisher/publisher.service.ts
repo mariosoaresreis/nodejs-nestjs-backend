@@ -27,7 +27,7 @@ export class PublisherService {
     }
 
     async getPublisher(publisherID: string): Promise<Publisher> {
-        const publisher = await this.publisherRepository.findById(publisherID).exec();
+        const publisher = await this.publisherRepository.findById(publisherID);
 
         if (!publisher){
             throw new NotFoundException();

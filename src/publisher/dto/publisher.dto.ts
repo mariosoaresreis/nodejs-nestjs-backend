@@ -2,6 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import {IsNotEmpty, IsNumberString, IsPhoneNumber, MinLength} from "class-validator";
 
 export class PublisherDTO {
+    @ApiProperty()
     _id: string;    
     @IsNotEmpty()
     @MinLength(3)

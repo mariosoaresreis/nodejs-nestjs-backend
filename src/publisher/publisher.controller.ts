@@ -1,7 +1,7 @@
 import { Controller, Delete, Get, Post, Put, Res, HttpStatus, Body, Param } from '@nestjs/common';
 import { PublisherDTO } from './dto/publisher.dto';
 import { PublisherService } from './publisher.service';
-import { ApiBody, ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiParam, ApiTags } from '@nestjs/swagger';
 
 
 @Controller('publisher')
@@ -23,6 +23,7 @@ export class PublisherController {
     }
 
     @Delete('/:id')
+    @ApiParam({name: 'id', required: true, description: 'Publisher ID'})
     async deletePublisher(@Res() res, @Param('id') id): Promise<JSON> {
         let jsonResponse;
 
@@ -56,6 +57,7 @@ export class PublisherController {
     }
 
     @Get('/:id')
+    @ApiParam({name: 'id', required: true, description: 'Publisher ID'})
     async getPublisherById(@Res() res, @Param('id') id): Promise<JSON> {
         let jsonResponse;
 
@@ -79,6 +81,7 @@ export class PublisherController {
 
     @Put(':id')
     @ApiBody({ type: PublisherDTO })
+    @ApiParam({name: 'id', required: true, description: 'Publisher ID'})
     async updatePublisher(@Res() res, @Body() publisherDTO: PublisherDTO, @Param('id') id): Promise<JSON> {
         let jsonResponse;
 

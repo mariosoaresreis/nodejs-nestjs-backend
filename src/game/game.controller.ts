@@ -1,7 +1,7 @@
 import { Controller, Delete, Get, Post, Put, Res, HttpStatus, Body, Param, Logger } from '@nestjs/common';
 import { GameDTO } from './dto/game.dto';
 import { GameService } from './game.service';
-import { ApiBody, ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiParam, ApiTags } from '@nestjs/swagger';
 
 
 @Controller('game')
@@ -11,7 +11,7 @@ export class GameController {
 
     constructor(private gameService: GameService) {}
 
-    @Post('/create')
+    @Post('/create')    
     @ApiBody({ type: GameDTO })
     async createGame(@Res() res, @Body() gamerDTO: GameDTO): Promise<JSON> {       
         const createdGame = await this.gameService.createGame(gamerDTO);
@@ -25,6 +25,7 @@ export class GameController {
     }
 
     @Delete('/:id')
+    @ApiParam({name: 'id', required: true, description: 'Game ID'})
     async deleteGame(@Res() res, @Param('id') id): Promise<JSON> {
         let jsonResponse;
 
@@ -60,6 +61,7 @@ export class GameController {
     }
 
     @Get('/:id')
+    @ApiParam({name: 'id', required: true, description: 'Game ID'})
     async getGameById(@Res() res, @Param('id') id): Promise<JSON> {
         let jsonResponse;
 
@@ -83,6 +85,7 @@ export class GameController {
 
     @Put(':id')
     @ApiBody({ type: GameDTO })
+    @ApiParam({name: 'id', required: true, description: 'Game ID'})
     async updateGame(@Res() res, @Body() gameDTO: GameDTO, @Param('id') id): Promise<JSON> {
         let jsonResponse;
 

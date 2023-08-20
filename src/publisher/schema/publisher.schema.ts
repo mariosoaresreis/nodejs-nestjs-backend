@@ -5,7 +5,7 @@ export type PublisherDocument = Publisher & Document;
 
 @Schema()
 export class Publisher{
-    @Prop({ type: SchemaTypes.ObjectId })
+    //@Prop({ type: SchemaTypes.ObjectId })
     _id: string;  
     @Prop() 
     name: string; 

@@ -11,7 +11,7 @@ export class GameService {
 
     constructor(@InjectModel('Game') private gameRepository: Model<Game>) { }
 
-    async createGame(gameDTO: GameDTO): Promise<Game> {  
+    async createGame(gameDTO: GameDTO): Promise<Game> { 
         const game = new this.gameRepository(gameDTO);
         return await game.save();
     }
@@ -48,7 +48,7 @@ export class GameService {
 
     async updateGame(gameID: string, gameDTO: GameDTO): Promise<Game> {
         const updatedGame = await this.gameRepository.findByIdAndUpdate(gameID,
-                                                                   gameDTO).exec();
+                                                                   gameDTO, {new: true}).exec();
         return updatedGame;
     }    
 }

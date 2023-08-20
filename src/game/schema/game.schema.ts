@@ -6,7 +6,8 @@ export type GameDocument = Game & Document;
 
 @Schema()
 export class Game {
-    @Prop({ type: SchemaTypes.ObjectId })
+    //@Prop({ type: SchemaTypes.ObjectId })
+    //@Field(() => ID,{ nullable: true })
     _id: string;
     @Prop()
     title: string;
@@ -23,3 +24,7 @@ export class Game {
 }
 
 export const GameSchema = SchemaFactory.createForClass(Game);
+
+function Field(arg0: () => any, arg1: { nullable: boolean; }): (target: Game, propertyKey: "_id") => void {
+    throw new Error('Function not implemented.');
+}
