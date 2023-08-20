@@ -42,7 +42,7 @@ describe('PublishersController', () => {
   describe('SUCESSO - publishers/insert', () => {
     it('should save publisher', async () => {
       let publisher = {        
-        "_id": null,
+        //"_id": null,
         name: 'EA Games',
         siret: 2,
         phone: '+5511999999999',
@@ -77,7 +77,7 @@ describe('PublishersController', () => {
       const response = await request(httpServer)
         .post('/publisher/create', () => {})
         .send(publisher);
-      expect(response.status).toBe(500);
+      expect(response.status).toBe(400);
     });
   });
 

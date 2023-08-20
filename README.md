@@ -37,7 +37,7 @@ npm run test game.service.spec.ts
 TO RUN THE APPLICATION:
 Go to project's root, in the same level where the file Dockerfile is located:
 
-Copy a file name .env. Inside .env type:
+Copy a file name .env. Them, inside file .env type:
 MONGO_CONNECTION_URI=<mongodb connection string you have access> 
 and save
 
@@ -45,7 +45,7 @@ Open the terminal. Type:
   sudo docker build -t ultra-rest-api .
 
 Then type:  
-  sudo docker run -dp 127.0.0.1:3001:3001 ultra-rest-api
+  sudo docker run -dp 127.0.0.1:3000:3000 ultra-rest-api
 
 
 Open your browser and type http://localhost:3000/api#/ to access Swagger documentation
