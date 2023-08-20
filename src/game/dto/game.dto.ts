@@ -7,8 +7,7 @@ export class GameDTO {
     @IsNotEmpty()
     @MinLength(3)
     @ApiProperty()
-    title: string;
-    @IsNumberString()    
+    title: string;      
     @ApiProperty()
     price: number;
     @IsNotEmpty()

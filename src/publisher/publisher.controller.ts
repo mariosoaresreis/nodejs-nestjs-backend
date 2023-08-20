@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Post, Put, Res, HttpStatus, Body, Param } from '@nestjs/common';
+import { Controller, Delete, Get, Post, Put, Res, HttpStatus, Body, Param, UsePipes, ValidationPipe } from '@nestjs/common';
 import { PublisherDTO } from './dto/publisher.dto';
 import { PublisherService } from './publisher.service';
 import { ApiBody, ApiParam, ApiTags } from '@nestjs/swagger';
@@ -12,6 +12,7 @@ export class PublisherController {
 
     @Post('/create')
     @ApiBody({ type: PublisherDTO })
+    @UsePipes(new ValidationPipe({ transform: true }))
     async createPublisher(@Res() res, @Body() publisherDTO: PublisherDTO): Promise<JSON> {
         const createdPublisher = await this.publisherService.createPublisher(publisherDTO);
 

@@ -15,8 +15,7 @@ export class GameController {
     @ApiBody({ type: GameDTO })
     async createGame(@Res() res, @Body() gamerDTO: GameDTO): Promise<JSON> {       
         const createdGame = await this.gameService.createGame(gamerDTO);
-        this.logger.log(createdGame);
-
+        
         return res.status(HttpStatus.CREATED).json({
             data: createdGame,
             message: 'Game was successfully created.',

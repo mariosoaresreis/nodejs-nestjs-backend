@@ -27,7 +27,7 @@ export class PublisherService {
     }
 
     async getPublisher(publisherID: string): Promise<Publisher> {
-        const publisher = await this.publisherRepository.findById(publisherID);
+        const publisher = await this.publisherRepository.findById(publisherID).exec();
 
         if (!publisher){
             throw new NotFoundException();
@@ -48,7 +48,7 @@ export class PublisherService {
     }
 
     async updatePublisher(publisherID: string, publisherDTO: PublisherDTO): Promise<Publisher> {
-        const publisher = await this.publisherRepository.findById(publisherID);
+        const publisher = await this.publisherRepository.findById(publisherID).exec();
 
         if (!publisher){
             throw new NotFoundException();
