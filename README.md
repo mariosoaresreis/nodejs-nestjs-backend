@@ -25,6 +25,7 @@ IMPLEMENTATION
 A Logger class was implemented in folder /middleware
 
 TO RUN Integrated Tests:
+npm install
 npm run test:e2e
 
 TO RUN Unit Tests:
